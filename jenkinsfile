@@ -5,7 +5,6 @@ pipeline {
         jdk "jdk8"
     }
     stages {
-        stages
             stage('Build') {
                 steps {
                         mvn deploy
