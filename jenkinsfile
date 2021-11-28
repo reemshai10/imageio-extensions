@@ -4,12 +4,25 @@ pipeline {
         maven "maven-3.6.2"
         jdk "jdk8"
     }
+    options {
+        timestamps()
+
+        timeout(unit: 'MINUTES', time: 10)
+
+        buildDiscarder(logRotator(
+            numToKeepStr: '4',
+            daysToKeepStr: '7',
+            artifactNumToKeepStr: '30')
+        )
+    } 
     stages {
             stage('Build') {
                 steps {
                         sh 'mvn -s settings.xml deploy   '
                     }
                 }
+
+                       
     }                    
 
 }
