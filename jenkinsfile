@@ -4,13 +4,15 @@ pipeline {
         maven "maven:3.6.2"
         jdk "jdk8"
     }
-   
-        stage('Build') {
-            steps {
-                    mvn deploy
+    stages {
+        stages
+            stage('Build') {
+                steps {
+                        mvn deploy
+                    }
                 }
-            }
-            
+    }                    
+
 }
      
    
