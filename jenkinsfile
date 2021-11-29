@@ -23,7 +23,15 @@ pipeline {
                 }
 
                        
-    }                    
+    }
+     post {
+        always {
+            mail bcc: '', cc: '', from: '', replyTo: '',  body: 'logs:', subject: 'status', to: 'reemtest12@gmail.com'
+        }
+        success {
+            echo "success"
+        }
+    }                     
 
 }
      
